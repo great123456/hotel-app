@@ -14,21 +14,21 @@
      <image src="/static/image/index/president.png" class="option-img"></image>
      <div class="option-text active">
        <span>总统套房卧室</span>
-       <image src="/static/image/arrow.png" mode="widthFix" class="arrow-img"></image>
+       <!-- <image src="/static/image/arrow.png" mode="widthFix" class="arrow-img"></image> -->
      </div>
    </div>
    <div class="option">
      <image src="/static/image/index/suite.png" class="option-img"></image>
      <div class="option-text active">
        <span>套房卧室</span>
-       <image src="/static/image/arrow.png" mode="widthFix" class="arrow-img"></image>
+       <!-- <image src="/static/image/arrow.png" mode="widthFix" class="arrow-img"></image> -->
      </div>
    </div>
    <div class="option">
      <image src="/static/image/index/administrative.png" class="option-img"></image>
      <div class="option-text active">
        <span>行政大床房卧室</span>
-       <image src="/static/image/arrow.png" mode="widthFix" class="arrow-img"></image>
+       <!-- <image src="/static/image/arrow.png" mode="widthFix" class="arrow-img"></image> -->
      </div>
    </div>
   </div>
@@ -111,9 +111,9 @@ export default {
     z-index: 2;
   }
   .option-text{
-    width:90%;
+    width:100%;
     position: absolute;
-    left: 5%;
+    left: 0%;
     bottom:-70rpx;
     height:100rpx;
     background: #FFFFFF;
@@ -121,7 +121,6 @@ export default {
     line-height: 120rpx;
     font-size: 28rpx;
     color: #666666;
-    padding:0rpx 50rpx;
     box-sizing: border-box;
     z-index: 1;
     .arrow-img{
