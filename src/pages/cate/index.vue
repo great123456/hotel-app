@@ -36,20 +36,20 @@
             </div>
           </div>
           <div class="cate-option-cell" @click="cateDetailPage">
-            <image src="/static/image/cate/food.png"></image>
+            <image src="/static/image/cate/food2.png"></image>
             <div class="cate-option-text">
               <p class="cate-option-text-title">
-                <span>百味煎鱼嘴</span>
-                <span style="color: #cfb53a;margin-right:20rpx;">28/位</span>
+                <span>红烧鱼</span>
+                <span style="color: #cfb53a;margin-right:20rpx;">69/位</span>
               </p>
             </div>
           </div>
           <div class="cate-option-cell" @click="cateDetailPage">
-            <image src="/static/image/cate/food.png"></image>
+            <image src="/static/image/cate/food3.png"></image>
             <div class="cate-option-text">
               <p class="cate-option-text-title">
-                <span>百味煎鱼嘴</span>
-                <span style="color: #cfb53a;margin-right:20rpx;">28/位</span>
+                <span>鲍鱼</span>
+                <span style="color: #cfb53a;margin-right:20rpx;">128/位</span>
               </p>
             </div>
           </div>
@@ -70,17 +70,17 @@ export default {
        url: '/static/image/cate/chinese-food.png',
        name: '中餐'
      },{
-       url: '/static/image/cate/chinese-food.png',
+       url: '/static/image/cate/type2.png',
        name: '西餐'
      },{
-       url: '/static/image/cate/chinese-food.png',
+       url: '/static/image/cate/type1.png',
        name: '料理'
      },{
-       url: '/static/image/cate/chinese-food.png',
+       url: '/static/image/cate/type3.png',
        name: '甜点'
      }],
      menuIndex:0,
-     imgUrls: ['/static/image/index/banner.png','/static/image/index/banner.png','/static/image/index/banner.png'],
+     imgUrls: ['https://healthapi.hxgtech.com/uploads/20180616/20180616150413-5b24b66d2213c.png','https://healthapi.hxgtech.com/uploads/20180616/20180616145706-5b24b4c22b4a3.jpg'],
      duration: 300
     }
   },

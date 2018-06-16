@@ -88,7 +88,7 @@ export default {
      }],
      showCart: false,
      animationData: {},
-     imgUrls: ['/static/image/index/banner.png','/static/image/index/banner.png','/static/image/index/banner.png'],
+     imgUrls: ['https://healthapi.hxgtech.com/uploads/20180616/20180616150413-5b24b66d2213c.png','https://healthapi.hxgtech.com/uploads/20180616/20180616145706-5b24b4c22b4a3.jpg'],
      duration: 300
     }
   },

@@ -5,12 +5,15 @@
      <image src="/static/image/cate/food.png" class="option-img" mode="widthFix"></image>
      <div class="option-text">
        <span>百位煎嘴鱼</span>
+       <span style="color: #cfb53a;margin-right:20rpx;">28/位</span>
      </div>
    </div>
+   <div style="height:30rpx;background: #f5f5f5;"></div>
    <div class="cate-notice">
      <div class="cate-notice-content">
        <p class="cate-notice-title">购买须知:</p>
-       <p>使用时间:14:30-17:30</p>
+       <p>使用时间:</p>
+       <p>14:30-17:30</p>
        <p>有效期至2018年6月30号</p>
        <p>本产品不可退款</p>
      </div>
@@ -24,7 +27,7 @@
        <image src="/static/image/index/introduce.png"></image>
      </div>
    </div>
-   <div class="pay-btn">立即购买</div>
+   <div class="pay-btn" @click="orderMessagePage">立即购买</div>
   </div>
 </template>
 
@@ -54,6 +57,11 @@ export default {
       wx.navigateTo({
          url: '/pages/edit-message/edit-message'
        })
+    },
+    orderMessagePage(){
+      wx.navigateTo({
+         url: '/pages/order-message/order-message'
+       })
     }
   }
 }
@@ -74,26 +82,25 @@ export default {
   .option-text{
     width:100%;
     background: #FFFFFF;
-    border-radius: 10px;
     line-height:65rpx;
-    font-size: 28rpx;
+    font-size: 32rpx;
     color: #666666;
     padding:0rpx 50rpx;
     box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
   }
 }
 .cate-notice{
   padding: 0rpx 30rpx;
   .cate-notice-content{
     width:100%;
-    border: 1px solid #CCCCCC;
-    border-radius: 10px;
-    height:200rpx;
+    text-align: center;
     padding: 20rpx 30rpx;
     box-sizing: border-box;
     font-size: 24rpx;
     color: #999999;
-    line-height:40rpx;
+    line-height:50rpx;
     .cate-notice-title{
       font-size: 28rpx;
       color: #DFCE7C;

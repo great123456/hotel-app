@@ -19,6 +19,7 @@ export default {
       '^pages/index/index',                           // 首页
       'pages/center/center',                          //我的
       'pages/introduce/introduce',                    //酒店简介
+      'pages/room-detail/room-detail',                //房间简介
       'pages/message/message',                        //个人信息
       'pages/cate/cate',                              //商城
       'pages/cate-detail/cate-detail',                //美食详情
@@ -42,12 +43,12 @@ export default {
         text: '首页',
         pagePath: 'pages/index/index',
         iconPath: '/static/image/index/home.png',
-        selectedIconPath: '/static/image/index/home-select.png'
+        selectedIconPath: '/static/image/index/home-selsect.png'
       },{
         text: '美食',
         pagePath: 'pages/cate/cate',
-        iconPath: '/static/image/index/mall.png',
-        selectedIconPath: '/static/image/index/mall-select.png'
+        iconPath: '/static/image/index/food.png',
+        selectedIconPath: '/static/image/index/food-select.png'
       },{
         text: '服务',
         pagePath: 'pages/service/service',

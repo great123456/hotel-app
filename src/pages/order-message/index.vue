@@ -2,25 +2,41 @@
 <template>
   <div class="container">
     <div class="message-container">
-       <p class="message-title">个人信息</p>
+      <p class="message-title">
+        <image src="/static/image/cate/order-pay.png" mode="widthFix" class="order-img"></image>
+        <span>支付方式</span>
+      </p>
+      <div class="message-option">
+        <span class="message-option-text">微信支付</span>
+        <icon type="success" size="20" class="pay-icon"/>
+      </div>
+    </div>
+    <div class="message-container">
+       <p class="message-title">
+         <image src="/static/image/cate/order-center.png" mode="widthFix" class="order-img"></image>
+         <span>个人信息</span>
+       </p>
        <div class="message-option">
-         <span>姓名</span>
+         <span class="message-option-text">姓名</span>
          <input type="text" v-model="name" placeholder="请输入姓名"/>
        </div>
        <div class="message-option">
-         <span>电话</span>
+         <span class="message-option-text">电话</span>
          <input type="text" v-model="phone" placeholder="请输入电话"/>
        </div>
        <div class="message-option">
-         <span>房间号</span>
+         <span class="message-option-text">房间号</span>
          <input type="text" v-model="card" placeholder="请输入房间号"/>
        </div>
     </div>
 
     <div class="message-container">
-       <p class="message-title">购买数量</p>
+       <p class="message-title">
+         <image src="/static/image/cate/order-num.png" mode="widthFix" class="order-img"></image>
+         <span>购买数量</span>
+       </p>
        <div class="message-option">
-         <span>百味煎鱼嘴</span>
+         <span class="message-option-text">百味煎鱼嘴</span>
          <div class="shop-container">
            <span class="shop-reduce" @click="reduceShop">-</span>
            <span class="shop-num">{{num}}</span>
@@ -30,8 +46,11 @@
     </div>
 
     <div class="message-container">
-       <p class="message-title">备注信息</p>
-        <textarea placeholder="在此填写你的备注信息" style="height:200rpx;background:#F5F5F5;padding:20rpx 30rpx;"/>
+       <p class="message-title">
+         <image src="/static/image/cate/order-msg.png" mode="widthFix" class="order-img"></image>
+         <span>备注信息</span>
+       </p>
+       <textarea placeholder="在此填写你的备注信息" style="height:200rpx;background:#F5F5F5;padding:20rpx 30rpx;"/>
     </div>
 
     <p class="order-btn" @click="saveUserMessage">立即提交</p>
@@ -109,6 +128,12 @@ export default {
   }
   .message-title{
     color:#DFCE7C;
+    border-bottom: 1px solid #F0F0F0;
+    .order-img{
+      display: inline-block;
+      width:32rpx;
+      margin-right: 20rpx;
+    }
   }
 }
 .message-option{
@@ -119,6 +144,15 @@ export default {
   span{
     display: inline-block;
     width:200rpx;
+    box-sizing: border-box;
+  }
+  .message-option-text{
+    text-indent: 52rpx;
+  }
+  .pay-icon{
+    float: right;
+    margin-top: 20rpx;
+    margin-right: 20rpx;
   }
   input{
     display: inline-block;
@@ -126,7 +160,7 @@ export default {
   }
   .shop-container{
     position: absolute;
-    right:0rpx;
+    right:20rpx;
     top:0rpx;
     span{
       display: inline-block;

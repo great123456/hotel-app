@@ -2,33 +2,33 @@
 <template>
   <div class="container">
    <p class="title">酒店</p>
-   <div class="option">
+   <div class="option" @click="introducePage">
      <image src="/static/image/index/hotel.png" class="option-img"></image>
-     <div class="option-text" @click="introducePage">
+     <div class="option-text">
        <span>酒店简介</span>
        <image src="/static/image/arrow.png" mode="widthFix" class="arrow-img"></image>
      </div>
    </div>
-   <p class="title" style="margin-top:130rpx;">客房预览</p>
-   <div class="option">
+   <p class="title" style="margin-top:130rpx;" @click="roomDetailPage">客房预览</p>
+   <div class="option" @click="roomDetailPage">
      <image src="/static/image/index/president.png" class="option-img"></image>
      <div class="option-text active">
        <span>总统套房卧室</span>
-       <!-- <image src="/static/image/arrow.png" mode="widthFix" class="arrow-img"></image> -->
+       <image src="/static/image/arrow.png" mode="widthFix" class="arrow-img"></image>
      </div>
    </div>
-   <div class="option">
+   <div class="option" @click="roomDetailPage">
      <image src="/static/image/index/suite.png" class="option-img"></image>
      <div class="option-text active">
        <span>套房卧室</span>
-       <!-- <image src="/static/image/arrow.png" mode="widthFix" class="arrow-img"></image> -->
+       <image src="/static/image/arrow.png" mode="widthFix" class="arrow-img"></image>
      </div>
    </div>
-   <div class="option">
-     <image src="/static/image/index/administrative.png" class="option-img"></image>
+   <div class="option" @click="roomDetailPage">
+     <image src="https://healthapi.hxgtech.com/uploads/20180616/20180616150810-5b24b75ae612c.png" class="option-img"></image>
      <div class="option-text active">
        <span>行政大床房卧室</span>
-       <!-- <image src="/static/image/arrow.png" mode="widthFix" class="arrow-img"></image> -->
+       <image src="/static/image/arrow.png" mode="widthFix" class="arrow-img"></image>
      </div>
    </div>
   </div>
@@ -57,7 +57,7 @@ export default {
      })
   },
   created(){
-    this.getUserInfo()
+    //this.getUserInfo()
   },
   methods: {
     getUserInfo () {
@@ -74,9 +74,20 @@ export default {
         }
       })
     },
+    previewImage(){           //预览图片
+      wx.previewImage({
+        current: '', // 当前显示图片的http链接
+        urls: [] // 需要预览的图片http链接列表
+      })
+    },
     introducePage(){
       wx.navigateTo({
          url: '/pages/introduce/introduce'
+       })
+    },
+    roomDetailPage(){
+      wx.navigateTo({
+         url: '/pages/room-detail/room-detail'
        })
     }
   }
@@ -119,7 +130,7 @@ export default {
     background: #FFFFFF;
     border-radius: 10px;
     line-height: 120rpx;
-    font-size: 28rpx;
+    font-size: 32rpx;
     color: #666666;
     box-sizing: border-box;
     z-index: 1;

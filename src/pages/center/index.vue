@@ -2,7 +2,7 @@
 <template>
   <div class="container">
     <div class="center-header">
-      <image src="/static/image/index/hotel.png" mode="widthFix" class="bac-img"></image>
+      <image src="https://healthapi.hxgtech.com/uploads/20180616/20180616150550-5b24b6ceaf17e.png" mode="widthFix" class="bac-img"></image>
        <div class="center-header-img">
          <div class="user-img">
            <open-data type="userAvatarUrl" style="border-radius:100%;"></open-data>
