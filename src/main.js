@@ -36,9 +36,9 @@ export default {
     tabBar: {
       position: 'bottom',
       color: '#AEAEBD',
-      selectedColor: '#303135',
+      selectedColor: '#cfb53a',
       backgroundColor: '#FFFFFF',
-      borderStyle: '#E1E1E6',
+      borderStyle: 'white',
       list: [{
         text: '首页',
         pagePath: 'pages/index/index',

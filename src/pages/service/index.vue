@@ -3,7 +3,7 @@
   <div class="container">
     <div class="banner">
       <!-- <image src="/static/image/index/banner.png" mode="widthFix"></image> -->
-      <swiper  :duration="duration" style="height:400rpx;">
+      <swiper  indicator-active-color="#cfb53a" :autoplay="autoplay" :interval="interval" :duration="duration" :indicator-dots="indicatorDots" style="height:400rpx;">
        <block v-for="(item,index) in imgUrls" :key="index">
          <swiper-item>
            <image :src="item" class="slide-image" width="100%" height="200"/>
@@ -89,7 +89,10 @@ export default {
      showCart: false,
      animationData: {},
      imgUrls: ['https://healthapi.hxgtech.com/uploads/20180616/20180616150413-5b24b66d2213c.png','https://healthapi.hxgtech.com/uploads/20180616/20180616145706-5b24b4c22b4a3.jpg'],
-     duration: 300
+     duration: 500,
+     indicatorDots: true,
+     interval: 3000,
+     autoplay: true
     }
   },
   components: {
