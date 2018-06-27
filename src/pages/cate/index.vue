@@ -31,8 +31,13 @@
             <div class="cate-option-text">
               <p class="cate-option-text-title">
                 <span>百味煎鱼嘴</span>
-                <span style="color: #cfb53a;margin-right:20rpx;">28/位</span>
+                <span style="color: #cfb53a;margin-right:150rpx;">28/位</span>
               </p>
+              <div class="num-content">
+                <span class="reduce" @click.stop="reduceNum">-</span>
+                <span class="number">{{num}}</span>
+                <span class="add" @click.stop="addNum">+</span>
+              </div>
             </div>
           </div>
           <div class="cate-option-cell" @click="cateDetailPage">
@@ -40,8 +45,13 @@
             <div class="cate-option-text">
               <p class="cate-option-text-title">
                 <span>红烧鱼</span>
-                <span style="color: #cfb53a;margin-right:20rpx;">69/位</span>
+                <span style="color: #cfb53a;margin-right:150rpx;">69/位</span>
               </p>
+              <div class="num-content">
+                <span class="reduce">-</span>
+                <span class="number">1</span>
+                <span class="add">+</span>
+              </div>
             </div>
           </div>
           <div class="cate-option-cell" @click="cateDetailPage">
@@ -49,8 +59,13 @@
             <div class="cate-option-text">
               <p class="cate-option-text-title">
                 <span>鲍鱼</span>
-                <span style="color: #cfb53a;margin-right:20rpx;">128/位</span>
+                <span style="color: #cfb53a;margin-right:150rpx;">128/位</span>
               </p>
+              <div class="num-content">
+                <span class="reduce">-</span>
+                <span class="number">1</span>
+                <span class="add">+</span>
+              </div>
             </div>
           </div>
         </div>
@@ -84,7 +99,8 @@ export default {
      duration: 500,
      indicatorDots: true,
      interval: 3000,
-     autoplay: true
+     autoplay: true,
+     num: 1
     }
   },
   components: {
@@ -107,6 +123,15 @@ export default {
       wx.navigateTo({
          url: '/pages/cate-detail/cate-detail'
        })
+    },
+    reduceNum(){
+      this.num--
+      if(this.num<=1){
+        this.num =1
+      }
+    },
+    addNum(){
+      this.num++
     }
   }
 }
@@ -184,12 +209,46 @@ export default {
         }
         .cate-option-text{
           height:65rpx;
+          position: relative;
           .cate-option-text-title{
             color: #000000;
             display: flex;
             justify-content: space-between;
             line-height: 65rpx;
             font-size:32rpx;
+          }
+          .num-content{
+            display: inline-block;
+            position: absolute;
+            right: 0rpx;
+            top: 0rpx;
+            height: 65rpx;
+            font-size: 36rpx;
+            .reduce{
+              display: inline-block;
+              width: 40rpx;
+              height:40rpx;
+              border:1px solid #b5b6b7;
+              line-height: 35rpx;
+              text-align: center;
+              margin-top: 10rpx;
+              margin-right:10rpx;
+              border-radius: 3px;
+            }
+            .number{
+              font-size: 32rpx;
+            }
+            .add{
+              display: inline-block;
+              width: 40rpx;
+              height:40rpx;
+              border:1px solid #b5b6b7;
+              line-height: 35rpx;
+              text-align: center;
+              margin-top: 10rpx;
+              margin-left:10rpx;
+              border-radius: 3px;
+            }
           }
           .cate-option-num{
             font-size:32rpx;

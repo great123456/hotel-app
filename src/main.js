@@ -45,6 +45,11 @@ export default {
         iconPath: '/static/image/index/home.png',
         selectedIconPath: '/static/image/index/home-selsect.png'
       },{
+        text: '客房',
+        pagePath: 'pages/room/room',
+        iconPath: '/static/image/index/store.png',
+        selectedIconPath: '/static/image/index/store-select.png'
+      },{
         text: '美食',
         pagePath: 'pages/cate/cate',
         iconPath: '/static/image/index/food.png',
