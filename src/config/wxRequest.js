@@ -10,7 +10,13 @@ export default async(url, params, method) => {
         'token': wx.getStorageSync('token') || ''
       },
       success: (response) => {
-        resolve(response.data)
+        if(response.data.code == 401){
+          wx.reLaunch({
+            url: '/pages/login/login'
+          })
+        }else{
+          resolve(response.data)
+        }
       },
       fail: (error) => {
         reject(error)

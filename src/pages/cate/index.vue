@@ -211,6 +211,7 @@ export default {
   justify-content: space-between;
   background: #ffffff;
   font-size: 28rpx;
+  padding-bottom: 100rpx;
   .cate-menu{
     width:21%;
     text-align: center;

@@ -3,10 +3,10 @@
   <div class="container">
     <div class="banner" @click="introducePage">
       <!-- <image src="/static/image/index/hotel.png"></image> -->
-       <swiper  indicator-active-color="#cfb53a"  circular :autoplay="autoplay" :interval="interval" :duration="duration" style="height:360rpx;">
+       <swiper  indicator-active-color="#cfb53a"  circular :autoplay="autoplay" :interval="interval" :duration="duration" :indicator-dots="indicatorDots" style="height:360rpx;">
         <block v-for="(item,index) in imgUrls" :key="index">
           <swiper-item>
-            <image :src="item" class="banner-image" mode="widthFix"/>
+            <image :src="item" class="banner-image"/>
           </swiper-item>
         </block>
        </swiper>
@@ -56,6 +56,7 @@ export default {
       duration: 500,
       interval: 2500,
       autoplay: true,
+      indicatorDots: true,
       code: ''
     }
   },
@@ -182,11 +183,13 @@ export default {
 }
 .banner-image{
   width:100%;
+  height: 100%;
 }
 .nav-content{
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-top: 30rpx;
   div{
     flex: 1;
     text-align: center;
@@ -205,6 +208,7 @@ export default {
   padding: 0rpx 30rpx;
   box-sizing: border-box;
   margin-top: 30rpx;
+  padding-bottom: 100rpx;
   .option{
     width: 100%;
     margin-bottom: 30rpx;

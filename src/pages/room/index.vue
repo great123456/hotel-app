@@ -1,7 +1,7 @@
 <!-- 首页 -->
 <template>
   <div class="container">
-   <p class="title" style="margin-top:130rpx;" @click="roomDetailPage">客房预览</p>
+   <p class="title" style="margin-top:30rpx;" @click="roomDetailPage">客房预览</p>
    <div class="option" @click="roomDetailPage">
      <image src="/static/image/index/president.png" class="option-img"></image>
      <div class="option-text active">

@@ -3,7 +3,7 @@ export default {
     shareParams: {
       title: '铂尔曼酒店',
       path: '/pages/index/index',
-      // imageUrl: '/static/images/share-img.jpg',
+      imageUrl: '/static/image/index/hotel.png',
       success () {
         wx.showToast({
           title: '转发成功！',
