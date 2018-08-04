@@ -27,14 +27,10 @@
       <div class="cate-option">
         <div class="cate-option-scroll">
           <div class="cate-option-cell" v-for="(item,index) in shopList" :key="index">
-            <image src="/static/image/cate/option-cup.png"></image>
-            <div class="cate-option-text">
-              <p class="cate-option-text-title">
-                <span>{{item.name}}</span>
-                <span class="cate-btn" v-if="item.select == false" @click="selectShop(index)">选择</span>
-                <span class="cate-active" v-if="item.select == true" @click="selectShop(index)">取消</span>
-              </p>
-              <p class="cate-option-num">价格:{{item.price}}元/个</p>
+            <image :src="item"></image>
+            <div class="cate-bottom">
+              <span></span>
+              <span class="cate-btn">立即预定</span>
             </div>
           </div>
         </div>
@@ -58,34 +54,19 @@ export default {
     return {
      menuList: [{
        url: '/static/image/cate/towel.png',
-       name: '毛巾类'
+       name: '健身中心'
      },{
        url: '/static/image/cate/cup.png',
-       name: '杯子系列'
+       name: 'SPA'
      },{
        url: '/static/image/cate/bed.png',
-       name: '床上用品'
-     },{
-       url: '/static/image/cate/goods.png',
-       name: '借用物品'
+       name: '棋牌室'
      },{
        url: '/static/image/cate/articles.png',
        name: '一次性用品'
      }],
      menuIndex:0,
-     shopList: [{
-       name: '马克杯',
-       price: '6',
-       select: false
-     },{
-       name: '马克杯',
-       price: '6',
-       select: false
-     },{
-       name: '马克杯',
-       price: '6',
-       select: false
-     }],
+     shopList: ['/static/image/index/suite.png','/static/image/index/president.png','/static/image/index/introduce.png'],
      showCart: false,
      animationData: {},
      imgUrls: ['https://healthapi.hxgtech.com/uploads/20180616/20180616150413-5b24b66d2213c.png','https://healthapi.hxgtech.com/uploads/20180616/20180616145706-5b24b4c22b4a3.jpg'],
@@ -203,16 +184,28 @@ export default {
       padding-bottom: 100rpx;
       box-sizing: border-box;
       .cate-option-cell{
-        margin-bottom:20rpx;
-        box-shadow: 0 2px 4px 0 #CCCCCC;
         background: #ffffff;
-        padding:20rpx;
-        border-radius: 16rpx;
+        padding:10rpx;
         image{
           display: inline-block;
-          width:120rpx;
-          height:120rpx;
-          border-radius:10rpx;
+          width:100%;
+          height:200rpx;
+        }
+        .cate-bottom{
+          display: flex;
+          justify-content: space-between;
+          .cate-btn{
+            display: inline-block;
+            width: 160rpx;
+            height: 60rpx;
+            line-height: 60rpx;
+            background:rgba(223, 206, 124, 0.6);
+            color: #ffffff;
+            text-align: center;
+            border-radius: 30rpx;
+            font-size: 26rpx;
+            margin-top: 10rpx;
+          }
         }
         .cate-option-text{
           display: inline-block;

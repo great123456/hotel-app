@@ -17,7 +17,13 @@ export default {
     // 其他页面可以选填，我们会自动把 webpack entry 里面的入口页面加进去
     pages: [
       '^pages/index/index',                           // 首页
+      'pages/login/login',                            //登录
       'pages/center/center',                          //我的
+      'pages/travel/travel',                          //游记
+      'pages/map/map',                                //导航
+      'pages/coupon/coupon',                          //优惠券
+      'pages/join/join',                              //加入我们
+      'pages/community/community',                    //社区
       'pages/introduce/introduce',                    //酒店简介
       'pages/room-detail/room-detail',                //房间简介
       'pages/message/message',                        //个人信息
@@ -43,17 +49,17 @@ export default {
         text: '首页',
         pagePath: 'pages/index/index',
         iconPath: '/static/image/index/home.png',
-        selectedIconPath: '/static/image/index/home-selsect.png'
-      },{
-        text: '客房',
-        pagePath: 'pages/room/room',
-        iconPath: '/static/image/index/store.png',
-        selectedIconPath: '/static/image/index/store-select.png'
+        selectedIconPath: '/static/image/index/home-select.png'
       },{
         text: '美食',
         pagePath: 'pages/cate/cate',
         iconPath: '/static/image/index/food.png',
         selectedIconPath: '/static/image/index/food-select.png'
+      },{
+        text: '客房',
+        pagePath: 'pages/room/room',
+        iconPath: '/static/image/index/store.png',
+        selectedIconPath: '/static/image/index/store-select.png'
       },{
         text: '服务',
         pagePath: 'pages/service/service',

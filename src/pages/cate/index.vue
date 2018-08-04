@@ -11,8 +11,27 @@
         </block>
        </swiper>
     </div>
-    <div class="cate-content">
 
+    <div class="coupon-content">
+        <div>
+          <image src="/static/image/cate/coupon.png" mode="widthFix"></image>
+          <p>50</p>
+          <span>满xx元可用</span>
+        </div>
+        <div>
+          <image src="/static/image/cate/coupon.png" mode="widthFix"></image>
+          <p>50</p>
+          <span>满xx元可用</span>
+        </div>
+        <div>
+          <image src="/static/image/cate/coupon.png" mode="widthFix"></image>
+          <p>50</p>
+          <span>满xx元可用</span>
+        </div>
+    </div>
+
+    <div class="cate-content">
+      
       <div class="cate-menu">
         <p class="cate-menu-title">今日菜谱</p>
         <div class="cate-menu-scroll">
@@ -20,6 +39,10 @@
           @click="selectMenu(index)">
             <image :src="item.url"></image>
             <p>{{item.name}}</p>
+          </div>
+          <div class="cate-menu-option" @click="communityPage">
+            <image src="/static/image/cate/type3.png"></image>
+            <p>社区</p>
           </div>
         </div>
       </div>
@@ -83,16 +106,13 @@ export default {
     return {
      menuList: [{
        url: '/static/image/cate/chinese-food.png',
-       name: '中餐'
+       name: '品盛阁中餐'
      },{
        url: '/static/image/cate/type2.png',
-       name: '西餐'
+       name: '悦享西餐'
      },{
        url: '/static/image/cate/type1.png',
-       name: '料理'
-     },{
-       url: '/static/image/cate/type3.png',
-       name: '甜点'
+       name: '東'
      }],
      menuIndex:0,
      imgUrls: ['https://healthapi.hxgtech.com/uploads/20180616/20180616150413-5b24b66d2213c.png','https://healthapi.hxgtech.com/uploads/20180616/20180616145706-5b24b4c22b4a3.jpg'],
@@ -132,6 +152,11 @@ export default {
     },
     addNum(){
       this.num++
+    },
+    communityPage(){
+      wx.navigateTo({
+         url: '/pages/community/community'
+       })
     }
   }
 }
@@ -149,6 +174,35 @@ export default {
   width:100%;
   image{
     width:100%;
+  }
+}
+.coupon-content{
+  display: flex;
+  justify-content: center;
+  div{
+    flex: 1;
+    text-align: center;
+    position: relative;
+    margin-top: 20rpx;
+    image{
+      width: 160rpx;
+    }
+    p{
+      font-size: 36rpx;
+      color: #ffffff;
+      position: absolute;
+      left: 50%;
+      top: 30rpx;
+      transform: translateX(-50%);
+    }
+    span{
+      font-size: 23rpx;
+      color: #ffffff;
+      position: absolute;
+      left: 50%;
+      top: 80rpx;
+      transform: translateX(-50%);
+    }
   }
 }
 .cate-content{
@@ -228,26 +282,29 @@ export default {
               display: inline-block;
               width: 40rpx;
               height:40rpx;
-              border:1px solid #b5b6b7;
               line-height: 35rpx;
               text-align: center;
               margin-top: 10rpx;
               margin-right:10rpx;
-              border-radius: 3px;
+              border-radius: 100%;
+              background: #cfb53a;
+              color: #ffffff !important;
             }
             .number{
               font-size: 32rpx;
+              color: #cfb53a;
             }
             .add{
               display: inline-block;
               width: 40rpx;
               height:40rpx;
-              border:1px solid #b5b6b7;
+              border-radius: 100%;
               line-height: 35rpx;
               text-align: center;
               margin-top: 10rpx;
               margin-left:10rpx;
-              border-radius: 3px;
+              background: #cfb53a;
+              color: #ffffff !important;
             }
           }
           .cate-option-num{

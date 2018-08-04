@@ -1,14 +1,22 @@
 <!-- 首页 -->
 <template>
   <div class="container">
+   <div class="detail-title">
+     甄选选嫩多汁的澳洲和牛品味独具匠心三道式套餐
+   </div>
+   <div class="notice">
+     <span><image src="/static/image/cate/icon_right.png" mode="widthFix"></image>周末及节假日通用</span>
+     <span><image src="/static/image/cate/icon_right.png" mode="widthFix"></image>官网独家</span>
+     <span><image src="/static/image/cate/icon_right.png" mode="widthFix"></image>可转赠</span>
+   </div>
+   <p class="introduce">广州铂尔曼酒店官方直销</p>
    <div class="option">
      <image src="/static/image/cate/food.png" class="option-img" mode="widthFix"></image>
-     <div class="option-text">
-       <span>百位煎嘴鱼</span>
-       <span style="color: #cfb53a;margin-right:20rpx;">28/位</span>
-     </div>
    </div>
-   <div style="height:30rpx;background: #f5f5f5;"></div>
+   <div class="introduce-content">
+     <span>图文介绍</span>
+     <span>产品详情</span>
+   </div>
    <div class="cate-notice">
      <div class="cate-notice-content">
        <p class="cate-notice-title">购买须知:</p>
@@ -18,16 +26,14 @@
        <p>本产品不可退款</p>
      </div>
    </div>
-   <div class="introduce-content">
-     <p>
-      全日制餐厅是小聚的理想场所,三间独具特色的餐厅和酒吧，将为宾客奉上难以忘怀的味蕾之旅。“颐享”全日餐厅位于酒店一层，
-      提供汇聚各国佳肴的自助大餐以及别有情调的招牌零点服务。“品盛阁”中餐厅吸纳地方菜精华，专注于原汁原味以及均衡营养。
-     </p>
-     <div class="introduce-img">
-       <image src="/static/image/index/introduce.png"></image>
-     </div>
+   
+   <div class="time-content">抢购还有1天13小时5分40秒结束</div>
+
+   <div class="pay-content">
+     <div class="price">360<span class="origin-price">门市价:960<span class="line"></span></span></div>
+     <div class="pay-btn">立即抢购</div>
    </div>
-   <div class="pay-btn" @click="orderMessagePage">立即购买</div>
+
   </div>
 </template>
 
@@ -72,23 +78,48 @@ export default {
   padding-bottom: 100rpx;
   background: #ffffff;
 }
+.detail-title{
+  font-size: 40rpx;
+  padding: 20rpx 30rpx;
+}
+.notice{
+  padding: 30rpx;
+  font-size: 26rpx;
+  color: rgb(88,144,255);
+  span{
+    display: inline-block;
+    margin-right: 20rpx;
+    image{
+      width: 30rpx;
+      margin-right: 5rpx;
+      position: relative;
+      top: -3rpx;
+    }
+  }
+}
+.introduce{
+  font-size: 36rpx;
+  padding-left: 30rpx;
+  color: rgb(88,144,255);
+}
 .option{
   width:100%;
-  margin-top: 30rpx;
-  margin-bottom:20rpx;
+  margin-top: 20rpx;
   .option-img{
     width:100%;
   }
-  .option-text{
-    width:100%;
-    background: #FFFFFF;
-    line-height:65rpx;
-    font-size: 32rpx;
-    color: #666666;
-    padding:0rpx 50rpx;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
+}
+.introduce-content{
+  height: 40px;
+  line-height: 40px;
+  color: #ffffff;
+  background: rgb(236,226,176);
+  display: flex;
+  justify-content: space-between;
+  span{
+    display: inline-block;
+    flex: 1;
+    text-align: center;
   }
 }
 .cate-notice{
@@ -101,39 +132,64 @@ export default {
     font-size: 24rpx;
     color: #999999;
     line-height:50rpx;
+    color: rgb(88,144,255);
     .cate-notice-title{
       font-size: 28rpx;
-      color: #DFCE7C;
+      color: rgb(236,226,176);
     }
   }
 }
-.introduce-content{
-  margin-top: 50rpx;
-  padding:0rpx 30rpx;
-  font-size: 28rpx;
-  color: #666666;
-  line-height: 56rpx;
-  .introduce-img{
-    margin-top: 20rpx;
-    margin-bottom: 20rpx;
-    image{
-      width:100%;
-      height:400rpx;
-      border-radius: 20rpx;
-    }
-  }
-}
-.pay-btn{
-  width:600rpx;
-  height:90rpx;
-  background: #DFCE7C;
-  color:#ffffff;
-  text-align: center;
-  font-size: 36rpx;
+.time-content{
+  width: 100%;
+  height: 90rpx;
   line-height: 90rpx;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 60rpx;
-  border-radius: 20rpx;
+  position: fixed;
+  left: 0px;
+  bottom: 110rpx;
+  color: #ffffff;
+  background: rgb(236,226,176);
+  text-align: center;
+}
+.pay-content{
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  .price{
+    width: 70%;
+    height: 100%;
+    background: #ffffff;
+    color: rgb(236,226,176);
+    font-size: 36rpx;
+    padding-left: 30rpx;
+    box-sizing: border-box;
+    .origin-price{
+      font-size: 26rpx;
+      color: rgb(153,153,153);
+      position: relative;
+      top: 10rpx;
+      .line{
+        display: inline-block;
+        width: 60rpx;
+        height: 3rpx;
+        background: rgb(153,153,153);
+        position: absolute;
+        top: 18rpx;
+        right: -10rpx;
+      }
+    }
+  }
+  .pay-btn{
+    width: 30%;
+    height: 100%;
+    background: rgb(236,226,176);
+    color: #ffffff; 
+    text-align: center;
+    font-size: 36rpx;
+  }
 }
 </style>

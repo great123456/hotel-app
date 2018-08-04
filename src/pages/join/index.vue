@@ -1,8 +1,7 @@
-<!-- 个人信息 -->
+<!-- 加入我们 -->
 <template>
   <div class="container">
     <div class="message-container">
-       <p class="message-title">完善个人信息</p>
        <div class="message-option">
          <span>姓名</span>
          <input type="text" v-model="name" placeholder="请输入姓名"/>
@@ -11,18 +10,14 @@
          <span>电话</span>
          <input type="text" v-model="phone" placeholder="请输入电话"/>
        </div>
-       <div class="message-option">
-         <span>身份证号</span>
-         <input type="text" v-model="card" placeholder="请输入身份证号"/>
-       </div>
-       <p class="order-btn" @click="saveUserMessage">保存</p>
+       <p class="order-btn" @click="saveUserMessage">提交</p>
     </div>
   </div>
 </template>
 
 <script>
 import wxShare from '@/mixins/wx-share'
-import { apiSaveUserInfo, apiUserInfo } from '@/service/index'
+import { apiUserSave,apiUserInfo } from '@/service/my'
 export default {
   mixins: [wxShare],
   data () {
@@ -46,49 +41,18 @@ export default {
   },
   methods: {
    getUserMessage(){
-     apiUserInfo()
-     .then((res)=>{
-       if(res.code == 200){
-         this.name = res.data.name
-         this.phone = res.data.phone
-         this.card = res.data.id_card_no
-       }
-     })
+
    },
    saveUserMessage(){
-     if(this.name == '' || this.card == '' || this.phone==''){
-        wx.showToast({
+    console.log('card',this.card)
+     if(this.name == '' || this.phone==''){
+       wx.showToast({
           title: '请填写完个人信息再保存',
           icon: 'none',
           duration: 2000
-        })
-       return
+         })
+        return
      }
-     apiSaveUserInfo({
-       name: this.name,
-       phone: this.phone,
-       id_card_no: this.card
-     })
-     .then((res)=>{
-       if(res.code == 200){
-         wx.showToast({
-           title: '保存成功',
-           icon: 'success',
-           duration: 2000
-         })
-         setTimeout(function(){
-           wx.navigateBack({
-             delta: 1
-           })
-         },1000)
-       }else{
-         wx.showToast({
-           title: res.msg,
-           icon: 'none',
-           duration: 2000
-         })
-       }
-     })
    }
   }
 }

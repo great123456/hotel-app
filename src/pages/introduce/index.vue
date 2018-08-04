@@ -2,7 +2,7 @@
 <template>
   <div class="container">
    <div class="option">
-     <image src="/static/image/index/main-building.png" class="option-img"></image>
+     <image src="/static/image/index/hotel.png" class="option-img"></image>
      <div class="option-text">
        <span>铂尔曼大酒店-主楼</span>
      </div>

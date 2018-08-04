@@ -13,23 +13,21 @@
     <div class="center-container">
        <div class="center-content">
          <div class="center-option" @click="orderPage">
-           <image src="/static/image/center/order.png" mode="widthFix" class="center-option-img"></image>
+           <!-- <image src="/static/image/center/order.png" mode="widthFix" class="center-option-img"></image> -->
            <span>我的订单</span>
            <image src="/static/image/center/arrow.png" mode="widthFix" class="center-option-icon"></image>
          </div>
          <div class="center-option" @click="messagePage">
-           <image src="/static/image/center/center.png" mode="widthFix" class="center-option-img"></image>
            <span>完善个人信息</span>
            <image src="/static/image/center/arrow.png" mode="widthFix" class="center-option-icon"></image>
          </div>
-         <p style="height:1px;background:#333333;margin-top:10rpx"></p>
-         <div class="center-bottom">
-            <image src="/static/image/center/number.png" mode="widthFix" class="center-option-img"></image>
-            <span>020-31146013</span>
+         <div class="center-option" @click="couponPage">
+           <span>优惠券</span>
+           <image src="/static/image/center/arrow.png" mode="widthFix" class="center-option-icon"></image>
          </div>
-         <div class="center-bottom" style="padding-bottom:100rpx;">
-            <image src="/static/image/center/site.png" mode="widthFix" class="center-option-img"></image>
-            <span>江苏省南京市长沙路221号</span>
+         <div class="center-option" @click="joinUsPage">
+           <span>加入我们</span>
+           <image src="/static/image/center/arrow.png" mode="widthFix" class="center-option-icon"></image>
          </div>
        </div>
     </div>
@@ -67,6 +65,16 @@ export default {
       wx.navigateTo({
          url: '/pages/message/message'
        })
+    },
+    joinUsPage(){
+      wx.navigateTo({
+         url: '/pages/join/join'
+       })
+    },
+    couponPage(){
+      wx.navigateTo({
+         url: '/pages/coupon/coupon'
+       })
     }
   }
 }
@@ -92,14 +100,16 @@ export default {
 .center-content{
   width:100%;
   background: #ffffff;
-  padding-top: 160rpx;
+  padding-top: 130rpx;
   padding-left: 50rpx;
   padding-right: 50rpx;
   box-sizing: border-box;
+  padding-bottom: 50rpx;
   .center-option{
     height:90rpx;
     line-height: 90rpx;
     color: #333333;
+    border-bottom: 1px solid #e0dcdc;
     .center-option-img{
       width:40rpx;
       margin-right: 20rpx;
