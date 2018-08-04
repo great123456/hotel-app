@@ -135,8 +135,10 @@ export default {
         }
       })
     },
-    getBannerList(){
-      apiBannerList()
+    getBannerList(){     //获取首页banner
+      apiBannerList({
+        type: 3
+      })
       .then((res)=>{
         if(res.code == 200){
 

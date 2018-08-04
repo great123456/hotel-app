@@ -14,8 +14,8 @@ export const apiUserInfo = (ajaxParams) => wxRequest(API_PATH + '/auth/show', aj
 // 首页列表
 export const apiIndexList = (ajaxParams) => wxRequest(API_PATH + '/page/list/100', ajaxParams, 'GET')
 
-// 轮播列表 可分页 （type 1:美食，2：服务）
-export const apiBannerList = (ajaxParams) => wxRequest(API_PATH + '/banner/list/type/1/size/10', ajaxParams, 'GET')
+// 轮播列表 可分页 （type 1:美食，2：服务, 3:首页）
+export const apiBannerList = (ajaxParams) => wxRequest(API_PATH + `/banner/list/type/${ajaxParams.type}/size/10`, ajaxParams, 'GET')
 
 // 游记列表
 export const apiTravelList = (ajaxParams) => wxRequest(API_PATH + '/travel/list/size/100', ajaxParams, 'GET')

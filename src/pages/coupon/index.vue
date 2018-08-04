@@ -16,12 +16,14 @@
      </div>
 
    </div>
+
+   <p class="not-data" v-show="couponList.length == 0">暂无优惠券信息</p>
   </div>
 </template>
 
 <script>
 import wxShare from '@/mixins/wx-share'
-import { apiCouponList } from '@/service/my'
+import { apiMyCouponList } from '@/service/my'
 export default {
   mixins: [wxShare],
   data () {
@@ -46,7 +48,7 @@ export default {
   },
   methods: {
     getCouponList(){
-      apiCouponList()
+      apiMyCouponList()
       .then((res)=>{
         wx.hideLoading()
         if(res.code == 200){
