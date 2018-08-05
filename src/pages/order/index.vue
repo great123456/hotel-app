@@ -10,6 +10,7 @@
 
 <script>
 import wxShare from '@/mixins/wx-share'
+import { apiOrderList } from '@/service/my'
 export default {
   mixins: [wxShare],
   data () {
@@ -31,7 +32,12 @@ export default {
   },
   methods: {
     getOrderList(){
-
+      apiOrderList()
+      .then((res)=>{
+        if(res.code == 200){
+          this.orderList = res.data.list
+        }
+      })
     },
     detailPage(index){
       wx.navigateTo({

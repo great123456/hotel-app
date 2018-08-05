@@ -26,7 +26,7 @@
        </div>
        <div class="message-option">
          <span class="message-option-text">房间号</span>
-         <input type="text" v-model="card" placeholder="请输入房间号"/>
+         <input type="text" v-model="room" placeholder="请输入房间号"/>
        </div>
     </div>
 
@@ -36,7 +36,7 @@
          <span>购买数量</span>
        </p>
        <div class="message-option">
-         <span class="message-option-text">百味煎鱼嘴</span>
+         <span class="message-option-text">{{detailObj.name}}</span>
          <div class="shop-container">
            <span class="shop-reduce" @click="reduceShop">-</span>
            <span class="shop-num">{{num}}</span>
@@ -59,15 +59,17 @@
 
 <script>
 import wxShare from '@/mixins/wx-share'
-import { apiUserSave,apiUserInfo } from '@/service/my'
+import { apiMenuDetail,apiMenuOrderPay } from '@/service/my'
 export default {
   mixins: [wxShare],
   data () {
     return {
       name: '',
       phone: '',
-      card: '',
-      num: 1
+      room: '',
+      num: 1,
+      detailId: '',
+      detailObj: {}
     }
   },
   components: {
@@ -77,14 +79,22 @@ export default {
 
   },
   onShow(){
-    this.getUserMessage()
+    this.detailId = this.$mp.query.id
+    this.getCateDetail(this.detailId)
   },
   created(){
 
   },
   methods: {
-   getUserMessage(){
-
+   getCateDetail(id){                   //获取美食详情
+     apiMenuDetail({
+       id: id
+     })
+     .then((res)=>{
+       if(res.code == 200){
+         this.detailObj = res.data
+       }
+     })
    },
    reduceShop(){
      this.num--
@@ -95,9 +105,8 @@ export default {
    addShop(){
      this.num++
    },
-   saveUserMessage(){
-    console.log('card',this.card)
-     if(this.name == '' || this.card == '' || this.phone==''){
+   saveUserMessage(){              //提交订单
+     if(this.name == '' || this.room == '' || this.phone==''){
        wx.showToast({
           title: '请填写完个人信息再提交',
           icon: 'none',
@@ -105,6 +114,41 @@ export default {
          })
         return
      }
+     apiMenuOrderPay({
+       phone: this.phone,
+       name: this.name,
+       room_no: this.room,
+       amount: this.detailObj.id + ':' + this.num
+     })
+     .then((res)=>{
+       if(res.code == 200){
+         wx.requestPayment({
+           'timeStamp': res.data.timeStamp + '',
+           'nonceStr': res.data.nonceStr,
+           'package': res.data.package,
+           'signType': 'MD5',
+           'paySign': res.data.paySign,
+           success:function(res){
+             wx.redirectTo({
+               url: '/pages/order/order'
+             })
+           },
+           fail:function(res){
+             wx.showToast({
+              title: res.errMsg,
+              icon: 'none',
+              duration: 2000
+             })
+           }
+         })
+       }else{
+         wx.showToast({
+          title: res.message,
+          icon: 'none',
+          duration: 2000
+         })
+       }
+     })
    }
   }
 }

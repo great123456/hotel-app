@@ -40,7 +40,7 @@
       <div class="cate-option">
         <div class="cate-option-scroll">
           <p class="not-data" v-show="cookingList.length == 0">暂无菜品数据</p>
-          <div class="cate-option-cell" v-for="(item,index) in cookingList" :key="index" @click="cateDetailPage">
+          <div class="cate-option-cell" v-for="(item,index) in cookingList" :key="index" @click="cateDetailPage(item.id)">
             <image :src="item.img"></image>
             <div class="cate-option-text">
               <p class="cate-option-text-title">
@@ -104,9 +104,9 @@ export default {
       this.menuIndex = index
       this.getFoodList(id)
     },
-    cateDetailPage(){
+    cateDetailPage(id){
       wx.navigateTo({
-         url: '/pages/cate-detail/cate-detail'
+         url: '/pages/cate-detail/cate-detail?id='+id
        })
     },
     getBannerList(){     //获取banner
@@ -167,7 +167,6 @@ export default {
         id: id
       })
       .then((res)=>{
-        console.log('food',res)
         this.cookingList = res.data.list
       })
     },

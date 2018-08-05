@@ -83,7 +83,7 @@ export default {
          },1000)
        }else{
          wx.showToast({
-           title: res.msg,
+           title: res.message,
            icon: 'none',
            duration: 2000
          })

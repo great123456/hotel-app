@@ -2,21 +2,21 @@
 <template>
   <div class="container">
    <div class="detail-title">
-     甄选选嫩多汁的澳洲和牛品味独具匠心三道式套餐
+     {{detailObj.name}}
    </div>
    <div class="notice">
      <span><image src="/static/image/cate/icon_right.png" mode="widthFix"></image>周末及节假日通用</span>
      <span><image src="/static/image/cate/icon_right.png" mode="widthFix"></image>官网独家</span>
      <span><image src="/static/image/cate/icon_right.png" mode="widthFix"></image>可转赠</span>
    </div>
-   <p class="introduce">广州铂尔曼酒店官方直销</p>
+   <p class="introduce">铂尔曼酒店官方直销</p>
    <div class="option">
-     <image src="/static/image/cate/food.png" class="option-img" mode="widthFix"></image>
+     <image :src="detailObj.img" class="option-img" mode="widthFix"></image>
    </div>
-   <div class="introduce-content">
+   <!-- <div class="introduce-content">
      <span>图文介绍</span>
      <span>产品详情</span>
-   </div>
+   </div> -->
    <div class="cate-notice">
      <div class="cate-notice-content">
        <p class="cate-notice-title">购买须知:</p>
@@ -26,12 +26,12 @@
        <p>本产品不可退款</p>
      </div>
    </div>
-   
-   <div class="time-content">抢购还有1天13小时5分40秒结束</div>
+
+   <!-- <div class="time-content">抢购还有1天13小时5分40秒结束</div> -->
 
    <div class="pay-content">
-     <div class="price">360<span class="origin-price">门市价:960<span class="line"></span></span></div>
-     <div class="pay-btn">立即抢购</div>
+     <div class="price">{{detailObj.price}}<span class="origin-price">门市价:960<span class="line"></span></span></div>
+     <div class="pay-btn" @click="orderMessagePage">立即抢购</div>
    </div>
 
   </div>
@@ -39,11 +39,13 @@
 
 <script>
 import wxShare from '@/mixins/wx-share'
+import { apiMenuDetail } from '@/service/my'
 export default {
   mixins: [wxShare],
   data () {
     return {
-
+      detailId: '',
+      detailObj: {}
     }
   },
   components: {
@@ -53,20 +55,26 @@ export default {
 
   },
   onShow(){
-
+    this.detailId = this.$mp.query.id
+    this.getCateDetail(this.detailId)
   },
   created(){
 
   },
   methods: {
-    messagePage(){
-      wx.navigateTo({
-         url: '/pages/edit-message/edit-message'
-       })
+    getCateDetail(id){                   //获取美食详情
+      apiMenuDetail({
+        id: id
+      })
+      .then((res)=>{
+        if(res.code == 200){
+          this.detailObj = res.data
+        }
+      })
     },
     orderMessagePage(){
       wx.navigateTo({
-         url: '/pages/order-message/order-message'
+         url: '/pages/order-message/order-message?id='+this.detailId
        })
     }
   }
@@ -75,7 +83,7 @@ export default {
 
 <style lang="scss" scoped>
 .container{
-  padding-bottom: 100rpx;
+  padding-bottom: 130rpx;
   background: #ffffff;
 }
 .detail-title{
@@ -167,6 +175,7 @@ export default {
     font-size: 36rpx;
     padding-left: 30rpx;
     box-sizing: border-box;
+    border-top: 1px solid #f5f5f5;
     .origin-price{
       font-size: 26rpx;
       color: rgb(153,153,153);
@@ -187,7 +196,7 @@ export default {
     width: 30%;
     height: 100%;
     background: rgb(236,226,176);
-    color: #ffffff; 
+    color: #ffffff;
     text-align: center;
     font-size: 36rpx;
   }
