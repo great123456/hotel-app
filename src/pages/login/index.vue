@@ -1,7 +1,8 @@
 <!-- 个人信息 -->
 <template>
   <div class="container">
-    <button open-type="getUserInfo" @getuserinfo="bindGetUserInfo">授权登录</button>
+    <image src="/static/image/index/hotel.png" class="login-bac"></image>
+    <button open-type="getUserInfo" @getuserinfo="bindGetUserInfo" class="login-btn">微信登录</button>
   </div>
 </template>
 
@@ -75,7 +76,22 @@ export default {
 
 <style lang="scss" scoped>
 .container{
-  padding:0rpx 30rpx;
-  padding-top: 30rpx;
+
+}
+.login-bac{
+  width: 100%;
+  height: 100vh;
+}
+.login-btn{
+  width: 65%;
+  position: absolute;
+  left: 17.5%;
+  bottom:25%;
+  background: rgba(255,255,255,0.9);
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #2c2d2f;
+  font-size: 32rpx;
+  text-align: center;
 }
 </style>

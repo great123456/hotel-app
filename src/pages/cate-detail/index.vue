@@ -171,7 +171,7 @@ export default {
     width: 70%;
     height: 100%;
     background: #ffffff;
-    color: rgb(236,226,176);
+    color: #DFCE7C;
     font-size: 36rpx;
     padding-left: 30rpx;
     box-sizing: border-box;
@@ -195,7 +195,7 @@ export default {
   .pay-btn{
     width: 30%;
     height: 100%;
-    background: rgb(236,226,176);
+    background: #DFCE7C;
     color: #ffffff;
     text-align: center;
     font-size: 36rpx;

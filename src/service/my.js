@@ -28,3 +28,9 @@ export const apiServiceOrderPay = (ajaxParams) => wxRequest(API_PATH + '/order/p
 
 //订单列表
 export const apiOrderList = (ajaxParams) => wxRequest(API_PATH + '/order/list/200', ajaxParams, 'GET')
+
+//服务类别列表
+export const apiServiceTypeList = (ajaxParams) => wxRequest(API_PATH + '/service/list/size/100', ajaxParams, 'GET')
+
+//服务列表
+export const apiServiceList = (ajaxParams) => wxRequest(API_PATH + `/servicedetail/list/pid/${ajaxParams.id}/size/100`, ajaxParams, 'GET')

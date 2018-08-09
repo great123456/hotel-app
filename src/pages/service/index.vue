@@ -18,7 +18,7 @@
         <div class="cate-menu-scroll">
           <div class="cate-menu-option" :class="{'menu-active':menuIndex==index}" v-for="(item,index) in menuList" :key="index"
           @click="selectMenu(index)">
-            <image :src="item.url"></image>
+            <image :src="item.img"></image>
             <p>{{item.name}}</p>
           </div>
         </div>
@@ -27,10 +27,10 @@
       <div class="cate-option">
         <div class="cate-option-scroll">
           <div class="cate-option-cell" v-for="(item,index) in shopList" :key="index">
-            <image :src="item"></image>
+            <image :src="item.img"></image>
             <div class="cate-bottom">
               <span></span>
-              <span class="cate-btn">立即预定</span>
+              <span class="cate-btn" @click="creatAnimation">立即预定</span>
             </div>
           </div>
         </div>
@@ -48,25 +48,15 @@
 
 <script>
 import wxShare from '@/mixins/wx-share'
+import { apiServiceTypeList,apiServiceList } from '@/service/my'
+import { apiBannerList } from '@/service/index'
 export default {
   mixins: [wxShare],
   data () {
     return {
-     menuList: [{
-       url: '/static/image/cate/towel.png',
-       name: '健身中心'
-     },{
-       url: '/static/image/cate/cup.png',
-       name: 'SPA'
-     },{
-       url: '/static/image/cate/bed.png',
-       name: '棋牌室'
-     },{
-       url: '/static/image/cate/articles.png',
-       name: '一次性用品'
-     }],
+     menuList: [],
      menuIndex:0,
-     shopList: ['/static/image/index/suite.png','/static/image/index/president.png','/static/image/index/introduce.png'],
+     shopList: [],
      showCart: false,
      animationData: {},
      imgUrls: ['https://healthapi.hxgtech.com/uploads/20180616/20180616150413-5b24b66d2213c.png','https://healthapi.hxgtech.com/uploads/20180616/20180616145706-5b24b4c22b4a3.jpg'],
@@ -83,12 +73,44 @@ export default {
 
   },
   onShow(){
-
+    this.getServiceTypeList()
+    this.getBannerList()
   },
   created(){
 
   },
   methods: {
+    getServiceTypeList(){   //获取服务类别
+      apiServiceTypeList()
+      .then((res)=>{
+        if(res.code == 200){
+          this.menuList = res.data.list
+          if(this.menuList.length>0){
+            this.getServiceList(this.menuList[0].id)
+          }
+        }
+      })
+    },
+    getServiceList(id){    //获取服务列表
+      apiServiceTypeList({
+        id: id
+      })
+      .then((res)=>{
+        if(res.code == 200){
+          this.shopList = res.data.list
+        }
+      })
+    },
+    getBannerList(){     //获取banner
+      apiBannerList({
+        type: 2
+      })
+      .then((res)=>{
+        if(res.code == 200){
+
+        }
+      })
+    },
     selectMenu(index){
       this.menuIndex = index
     },
@@ -109,7 +131,7 @@ export default {
     },
     orderMessagePage(){
       wx.navigateTo({
-         url: '/pages/order-message/order-message'
+         url: '/pages/order-message/order-message?id='+this.shopList[0].id
        })
     }
   }

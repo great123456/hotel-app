@@ -64,8 +64,8 @@
 
 <script>
 import wxShare from '@/mixins/wx-share'
-import {apiCouponList,apiReceiveCoupon,apiCookbookList,apiMenuList} from '@/service/my'
-import {apiBannerList} from '@/service/index'
+import { apiCouponList,apiReceiveCoupon,apiCookbookList,apiMenuList } from '@/service/my'
+import { apiBannerList } from '@/service/index'
 export default {
   mixins: [wxShare],
   data () {
@@ -92,6 +92,7 @@ export default {
     wx.showLoading({
       title: '加载中',
     })
+    console.log('cate')
     this.getCouponList()
     this.getCookbookList()
     this.getBannerList()
